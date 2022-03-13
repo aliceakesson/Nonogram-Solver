@@ -1,0 +1,10 @@
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\bin\Debug\Nonogram-Solver.exe.config
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\bin\Debug\Nonogram-Solver.exe
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\bin\Debug\Nonogram-Solver.pdb
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram-Solver.csproj.AssemblyReference.cache
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram_Solver.Form1.resources
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram_Solver.Properties.Resources.resources
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram-Solver.csproj.GenerateResource.cache
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram-Solver.csproj.CoreCompileInputs.cache
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram-Solver.exe
+C:\Users\alcea\source\repos\SmallerProjects\Nonogram-Solver\obj\Debug\Nonogram-Solver.pdb
