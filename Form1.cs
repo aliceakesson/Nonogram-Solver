@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -448,6 +448,7 @@ namespace Nonogram_Solver
                     n = 20; 
                     solution = new int[20, 20];
                 }
+
                 for(int i = 0; i < n; i++)
                 {
                     for(int j = 0; j < n; j++)
@@ -609,7 +610,157 @@ namespace Nonogram_Solver
                 }
                 for(int i = amountOfBoxes / 2; i < amountOfBoxes; i++) //horizontal part 
                 {
+                    for (int j = 0; j < strings[i].Count; j++)
+                    {
 
+                        int number = 0;
+                        try
+                        {
+                            number = int.Parse(strings[i][j]);
+                        }
+                        catch (FormatException fe)
+                        {
+                            Console.WriteLine("");
+                            Console.WriteLine("Couldn't convert number from box to int");
+                        }
+
+                        int numberSum = 0; // empty spaces, crosses (ex. 3 6) (?)
+                        for (int k = 0; k < strings[i].Count; k++)
+                        {
+                            int numberAtIndex = 0;
+                            try
+                            {
+                                numberAtIndex = int.Parse(strings[i][k]);
+                            }
+                            catch (FormatException fe)
+                            {
+                                Console.WriteLine("");
+                                Console.WriteLine("Couldn't convert number from box to int");
+                            }
+
+                            numberSum += (numberAtIndex + 1);
+
+                        }
+                        numberSum--;
+
+                        double numberLineLimit = amountOfBoxes / 4; //7.5 --> 7
+                        if (number == (amountOfBoxes / 2)) // full line
+                        {
+                            for (int k = 0; k < (amountOfBoxes / 2); k++)
+                            {
+                                solution[k, i - amountOfBoxes / 2] = 1;
+                            }
+                        }
+                        else if (numberSum == (amountOfBoxes / 2)) //full line including spaces between
+                        { /* NOT COMPLETED */
+                            int indexCount = 0;
+                            for (int k = 0; k < strings[i].Count; k++)
+                            {
+                                int numberAtIndex = 0;
+                                try
+                                {
+                                    numberAtIndex = int.Parse(strings[k][i - amountOfBoxes / 2]);
+                                }
+                                catch (FormatException fe)
+                                {
+                                    Console.WriteLine("");
+                                    Console.WriteLine("Couldn't convert number from box to int");
+                                }
+
+                                for (int l = 0; l < numberAtIndex; l++)
+                                {
+                                    solution[i, indexCount + l] = 1;
+                                }
+                                if (k != (strings[i].Count - 1))
+                                    solution[i, indexCount + numberAtIndex] = 0;
+
+                                indexCount += (numberAtIndex + 1);
+
+                            }
+                        }
+                        //else if (number > numberLineLimit) //filled boxes in the middle becuase number overlapses middle
+                        //{
+                        //    if (difficulty == Difficulty.Hard)
+                        //    {
+                        //        solution[i, (int)(numberLineLimit + 0.5)] = 1; // fill the middle part of the line 
+
+                        //        int boxesLeftToFill = number - (int)(numberLineLimit + 0.5); //7.5 --> 8
+                        //        if (boxesLeftToFill > 0)
+                        //        {
+                        //            for (int k = 1; k <= boxesLeftToFill; k++)
+                        //            {
+                        //                solution[i, (int)(numberLineLimit + 0.5) - k] = 1;
+                        //                solution[i, (int)(numberLineLimit + 0.5) + k] = 1;
+                        //            }
+                        //        }
+                        //    }
+                        //    else
+                        //    {
+                        //        int boxesLeftToFill = number - (int)(numberLineLimit); //7.5 --> 8
+                        //        if (boxesLeftToFill > 0)
+                        //        {
+                        //            for (int k = 1; k <= boxesLeftToFill; k++)
+                        //            {
+                        //                solution[i, (int)(amountOfBoxes / 4) - k] = 1;
+                        //                solution[i, (int)(amountOfBoxes / 4) + k - 1] = 1;
+                        //            }
+                        //        }
+
+                        //        if (j != 0) //not first number in box 
+                        //        {
+                        //            int placesBeforeMin = 0;
+                        //            for (int k = 0; k < j; k++)
+                        //            {
+                        //                int numberAtIndex = 0;
+                        //                try
+                        //                {
+                        //                    numberAtIndex = int.Parse(strings[i][k]);
+                        //                }
+                        //                catch (FormatException fe)
+                        //                {
+                        //                    Console.WriteLine("");
+                        //                    Console.WriteLine("Couldn't convert number in box to int");
+                        //                }
+
+                        //                placesBeforeMin += (numberAtIndex + 1);
+                        //            }
+
+                        //            for (int k = 1; k <= placesBeforeMin; k++)
+                        //            {
+                        //                solution[i, (int)(amountOfBoxes / 4) - 1 + boxesLeftToFill + k] = 1;
+                        //            }
+                        //        }
+
+                        //        if (j != (strings[i].Count - 1)) //not last number in box 
+                        //        {
+                        //            int placesAfterMin = 0;
+                        //            for (int k = j + 1; k < (strings[i].Count); k++)
+                        //            {
+                        //                int numberAtIndex = 0;
+                        //                try
+                        //                {
+                        //                    numberAtIndex = int.Parse(strings[i][k]);
+                        //                }
+                        //                catch (FormatException fe)
+                        //                {
+                        //                    Console.WriteLine("");
+                        //                    Console.WriteLine("Couldn't convert number in box to int");
+                        //                }
+                        //                Console.WriteLine(numberAtIndex);
+                        //                placesAfterMin += (numberAtIndex + 1);
+                        //            }
+
+                        //            for (int k = 1; k <= placesAfterMin; k++)
+                        //            {
+                        //                solution[i, (int)(amountOfBoxes / 4) - boxesLeftToFill - k] = 1;
+                        //            }
+                        //        }
+                        //    }
+
+
+                        //}
+
+                    }
                 }
 
                 if (difficulty == Difficulty.Easy || difficulty == Difficulty.Medium)
