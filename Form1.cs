@@ -243,18 +243,17 @@ namespace Nonogram_Solver
 
             List<List<string>> strings = new List<List<string>>();
 
-            for(int i = 0; i < amountOfBoxes/2; i++) // första halvan, de där uppe
+            for(int i = 0; i < amountOfBoxes/2; i++) // first half, the numbers on the top
             {
-                string text = currentNumbers[i].Text;
+                string text = currentNumbers[i].Text.Trim();
 
                 if(text.Length == 0)
                 {
                     readyToSolve = false;
-                    //break; 
                 }
                 else
                 {
-                    List<string> lines = new List<string>();
+                    List<string> lines = new List<string>(); // the different boxes on numbers
 
                     if (text.IndexOf('\n') > 0)
                     {
@@ -281,12 +280,10 @@ namespace Nonogram_Solver
                     {
                         string line = text;
                         lines.Add(line);
-                        
                     }
 
                     for(int j = 0; j < lines.Count; j++) { // fix all strings in List<string> lines
                         string line = lines[j];
-                        line.Trim();
 
                         string lineOnlyNumbers = "";
                         if(line.Length > 0)
@@ -327,7 +324,6 @@ namespace Nonogram_Solver
                     if(lines.Count == 0)
                     {
                         readyToSolve = false;
-                        //break; 
                     }
                     else
                     {
@@ -337,14 +333,13 @@ namespace Nonogram_Solver
                 }
             }
 
-            for (int i = amountOfBoxes / 2; i < amountOfBoxes; i++) // andra halvan, de horisontella 
+            for (int i = amountOfBoxes / 2; i < amountOfBoxes; i++) // other half, the left ones 
             {
-                string text = currentNumbers[i].Text;
+                string text = currentNumbers[i].Text.Trim();
 
                 if (text.Length == 0)
                 {
                     readyToSolve = false;
-                    //break; 
                 }
                 else
                 {
@@ -382,7 +377,6 @@ namespace Nonogram_Solver
                     for (int j = 0; j < lines.Count; j++)
                     { // fix all strings in List<string> lines
                         string line = lines[j];
-                        line.Trim();
 
                         string lineOnlyNumbers = "";
                         if (line.Length > 0)
@@ -423,7 +417,6 @@ namespace Nonogram_Solver
                     if (lines.Count == 0)
                     {
                         readyToSolve = false;
-                        //break; 
                     }
                     else
                     {
